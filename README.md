@@ -85,9 +85,6 @@ Weekly counts of 'fever' Google search term from 2012 - 2024
 'google_trend_mosquito.csv' - https://trends.google.com/trends/explore?geo=SG&q=mosquito </n>
 Weekly counts of 'mosquito' Google search term from 2012 - 2024
 
-'google_trend_dengue_fever_mosquito.csv' - https://trends.google.com/trends/explore?geo=SG&q=dengue%20fever%20mosquito </n>
-Weekly counts of 'dengue fever mosquito' Google search term from 2012 - 2024
-
 'jao_dengue.csv' - </n>
 Weekly dengue cases, mean rainfall and mean temperature from 2012 - 2019
 
