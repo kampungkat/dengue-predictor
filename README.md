@@ -3,19 +3,16 @@
 
 # Table of Contents
 
-1. [Problem Statement](#problem-statement)
-2. [Scope](#scope)
-3. [Methodology](#methodology)
-4. [Data Dictionary](#data-dictionary)
-5. [Models Used](#models-used)
-6. [Summary of Findings](#summary-of-findings)
-7. [Installation](#installation)
-    - [Datasets](#datasets)
-    - [Dependencies](#dependencies)
-    - [.ipynb](#ipynb)
-8. [Annexes](#annexes)
-    - [Datasets](#datasets-1)
-    - [References and Citations](#references-and-citations)
+- [:mosquito: Dengue in Singapore :mosquito:](#mosquito-dengue-in-singapore-mosquito)
+        - [Predicting future Dengue cases \& a cost-benefit analysis of Project Wolbachia](#predicting-future-dengue-cases--a-cost-benefit-analysis-of-project-wolbachia)
+- [Table of Contents](#table-of-contents)
+  - [Problem Statement](#problem-statement)
+  - [Scope](#scope)
+  - [Methodology](#methodology)
+  - [Data Dictionary](#data-dictionary)
+  - [Summary of Findings](#summary-of-findings)
+  - [Installation](#installation)
+    - [Annexes](#annexes)
     
 ## Problem Statement
 
@@ -26,21 +23,41 @@ This project aims to analyze the trends of several features from historical data
 
 ## Methodology
 
-Text Here
+The dataset is compiled using data from various sources including scraped data from [weather.gov](http://www.weather.gov.sg/climate-historical-daily/), [data.gov](https://data.gov.sg/), [NEA](https://www.nea.gov.sg/), etc. Additional data is gathered through desk research to quantify Wolbachia efforts by determining the proportion of Singaporean estates where male Wolbachia-Aedes mosquitoes are released. The impact of COVID-19 related restrictions and subsequent increased post-lockdown construction activity, both of which have influenced dengue cases, is also considered. Details of the data-gathering process is provided in the accompanying notebook `dengue_scraper.ipynb` in the `data` subdirectory.
+
+Three predictive models for the dengue forecasting task at hand, namely SARIMAX, linear regression, and XGBoost. The models were built on a dataset gathered for this project, consisting of historical weather information, Google search trends, as well as Wolbachia coverage and external events. Additional efforts are spent to create lagged feature and target values for the second and third models, as data order is not automatically accounted for in these frameworks.
 
 ## Data Dictionary
-
-|Feature|Type|Dataset|Description|
-|---|---|---|---|
-|XXX|XXX|XXX|XXX| 
-
-## Models Used
-
-Text Here
+The compiled dataframe used for model training is given by `df_raw`.
+| Feature               | Type  | Description                                                             |
+|-----------------------|-------|-------------------------------------------------------------------------|
+| Year                  | int   | Year                                                                    |
+| Week                  | int   | Week                                                                    |
+| Dengue_Count          | float | Weekly count of dengue fever incidence                                  |
+| Daily_Rainfall        | float | Average daily rainfall of week                                          |
+| Mean_Temperature      | float | Mean temperature of week                                                |
+| Max_Temperature       | float | Average daily maximum temperature of week                               |
+| Min_Temperature       | float | Average daily minimum temperature of week                               |
+| Min_Wind_Speed        | float | Average daily minimum wind speed of week                                |
+| Max_Wind_Speed        | float | Average daily maximum wind speed of week                                |
+| Relative_Humidity     | float | Average relative humidity of week                                       |
+| Trend_Dengue          | float | Weekly Google search count for keyword "dengue"                         |
+| Trend_Dengue_Symptoms | float | Weekly Google search count for keyword "dengue+symptoms"                |
+| Trend_Fever           | float | Weekly Google search count for keyword "fever"                          |
+| Trend_Mosquito        | float | Weekly Google search count for keyword "mosquito"                       |
+| Wolbachia_Ratio       | float | Proportion of estate where Wolbachia mosquitos are released in the week |
+| External_Events       | int   | COVID-19 lockdown in place or heightened construction activity          |
 
 ## Summary of Findings
+As shown below, the XGBoost model stands out as the best performing model, showing the lowest noise levels and yielding the lowest Mean Absolute Error (MAE).
 
-Text Here
+![Model comparison](./assets/model_comparison.png "Comparison of SARIMAX, linear regression, and XGBoost forecasting power")
+
+A refined XGBoost model, accounting for uncertainty in feature inputs, is then used to investigate the effects of the Wolbachia Project, showing clear signs of increased dengue occurences in its absence.
+
+![Wolbachia effect](./assets/wolbachia_impact.png "Impact of Wolbachia on Dengue Count")
+
+It is therefore recommended that Wolbachia efforts be continued and strengthened if possible.
 
 ## Installation
 
@@ -85,13 +102,13 @@ Weekly counts of 'fever' Google search term from 2012 - 2024
 'google_trend_mosquito.csv' - https://trends.google.com/trends/explore?geo=SG&q=mosquito </n>
 Weekly counts of 'mosquito' Google search term from 2012 - 2024
 
-'jao_dengue.csv' - </n>
+'jao_dengue.csv' - https://github.com/jaotheboss/Dengue-Prediction </n>
 Weekly dengue cases, mean rainfall and mean temperature from 2012 - 2019
 
 'NEA_dengue.csv' - https://www.nea.gov.sg/dengue-zika/dengue/dengue-cases </n>
 Weekly dengue cases in Singapore from 2020 - 2024
 
-'NEA_weather.csv' - </n>
+'NEA_weather.csv' - http://www.weather.gov.sg/climate-historical-daily/ </n>
 Daily weather data including rainfall, temperature and wind speed from 2012 - 2024
 
 ***References and Citations***
