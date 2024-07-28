@@ -3,16 +3,18 @@
 
 # Table of Contents
 
-- [:mosquito: Dengue in Singapore :mosquito:](#mosquito-dengue-in-singapore-mosquito)
-        - [Predicting future Dengue cases \& a cost-benefit analysis of Project Wolbachia](#predicting-future-dengue-cases--a-cost-benefit-analysis-of-project-wolbachia)
-- [Table of Contents](#table-of-contents)
-  - [Problem Statement](#problem-statement)
-  - [Scope](#scope)
-  - [Methodology](#methodology)
-  - [Data Dictionary](#data-dictionary)
-  - [Summary of Findings](#summary-of-findings)
-  - [Installation](#installation)
-    - [Annexes](#annexes)
+1. [Problem Statement](#problem-statement)
+2. [Scope](#scope)
+3. [Methodology](#methodology)
+4. [Data Dictionary](#data-dictionary)
+5. [Summary of Findings](#summary-of-findings)
+6. [Installation](#installation)
+    - [Datasets](#datasets)
+    - [Dependencies](#dependencies)
+    - [.ipynb](#ipynb)
+7. [Annexes](#annexes)
+    - [Datasets](#datasets-1)
+    - [References and Citations](#references-and-citations)
     
 ## Problem Statement
 
