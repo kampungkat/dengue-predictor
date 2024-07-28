@@ -59,7 +59,13 @@ A refined XGBoost model, accounting for uncertainty in feature inputs, is then u
 
 ![Wolbachia effect](./assets/wolbachia_impact.png "Impact of Wolbachia on Dengue Count")
 
-It is therefore recommended that Wolbachia efforts be continued and strengthened if possible.
+Furthermore, with an annual cost of only SGD40M per year, the cost-benefit analysis done on the Singapore government's Project Wolbachia also shows promising results, potentially saving over SGD1B over 11 years. A dashboard outlining the details of the analysis can be found here:
+
+https://public.tableau.com/app/profile/mohamad.faeliq.ramley/viz/WolbachiaCostBenefit/ProjectWolbachiaSingapore
+
+![Wolbachia CBA](./assets/Wolbachia_CBA.png "Project Wolbachia Cost-Benefit Analysis dashboard")
+
+It is therefore recommended that Project Wolbachia efforts be continued and further strengthened, if possible.
 
 ## Installation
 
